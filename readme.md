@@ -16,3 +16,21 @@
 &#8195;[01] Entry from main!<br>
 &#8195;[ISR] Execute in ISR to respond to interrupt from [source: demo] !<br>
 &#8195;QEMU: Terminated (按下快捷键退出QEMU)<br>
+![插图02](emulateSOC_color.png "colorful image for emulated arm cortex-M3")
+
+# (3/3) 模拟 RISCV MCU:: rv32imac 芯片
+## (01) 查询支持的设备列表（仅保留easonLiang_rv32imac和eason_demo_riscv的设备/开发板）：
+> `[eason@Arch soc_pcie]$ ./qemu-system-riscv32 -M help`<br>
+&#8195;Supported machines are:<br>
+&#8195;easonLiang_rv32imac  EasonLiang's RISC-V dev board (mcu::rv32imac)<br>
+&#8195;eason_demo_riscv     eason's demo Board for RISC-V<br>
+&#8195;none                 empty machine<br>
+## (02) 启动qemu-system-riscv32仿真easonLiang_rv32imac设备，运行hello_world程序（hello_rv32imac.elf）
+> `[eason@Arch soc_pcie]$ ./qemu-system-riscv32 -M easonLiang_rv32imac -nographic -kernel hello_rv32imac.elf`<br>
+&#8195;Hello, World!<br>
+&#8195;Language : C<br>
+&#8195;Author : EasonLiang<br>
+&#8195;Env Type : Regressive Integration<br>
+&#8195;Build Platform : ArchLinux @ 20230814<br>
+&#8195;Running Platform : Emulated RISC-V<br>
+![插图03](rv32imac_color.png "colorful image for emulated RISC-V MCU with ISA RV32IMAC")
