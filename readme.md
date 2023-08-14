@@ -34,3 +34,8 @@
 &#8195;Build Platform : ArchLinux @ 20230814<br>
 &#8195;Running Platform : Emulated RISC-V<br>
 ![插图03](rv32imac_color.png "colorful image for emulated RISC-V MCU with ISA RV32IMAC")
+## (03) 为easonLiang_rv32imac开发板编译应用程序：
+`riscv64-unknown-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medlow -ffunction-sections -fdata-sections \
+				--specs=nano.specs -O0 -g -nostartfiles -nostdlib \
+				-T sdk_easonLiang/rv32imac/hello.lds -L sdk_easonLiang/rv32imac/libs/ -Wl,--gc-sections \
+				hello_rv32imac.c -Wl,--start-group -lc -lgcc -lm -lmetal -lmetal-gloss -Wl,--end-group -o hello_rv32imac.elf`
